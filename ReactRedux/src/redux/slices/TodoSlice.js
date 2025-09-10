@@ -1,9 +1,7 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 const initialState = {
-  todos: [{
-    id: 1, text: "WelCome To My Todo App Made Using React Redux"
-  }],
+  todos: JSON.parse(localStorage.getItem("todos")) || [],
 };
 
 const todoSlice = createSlice({
