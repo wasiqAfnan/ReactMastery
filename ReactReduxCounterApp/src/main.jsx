@@ -7,7 +7,7 @@ import { Provider } from 'react-redux' // provider by react redux
 
 // step 2: give access of the store to your whole app
 createRoot(document.getElementById("root")).render(
-  <provider store={store}>
+  <Provider store={store}>
     <App />
-  </provider>,
+  </Provider>,
 );
