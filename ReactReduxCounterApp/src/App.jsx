@@ -1,6 +1,12 @@
 import { useSelector, useDispatch } from "react-redux";
-import { decrement, increment, incrementByAmount } from "./redux/features/counterFeature";
+import {
+  decrement,
+  decrementByAmount,
+  increment,
+  incrementByAmount,
+} from "./redux/features/counterFeature";
 import { useState } from "react";
+import "./App.css"
 
 function App() {
   const [number, setNumber] = useState(0);
@@ -12,26 +18,32 @@ function App() {
   const counter = useSelector((state) => state.counter.value);
 
   return (
-    <>
-      <h1>{counter}</h1>
-      <div>
+    <div className="app">
+      <div className="card">
+        <h1 className="count">{counter}</h1>
+
         {/* step7: calling the reducer function when user click the button using disptch hook*/}
-        <button onClick={() => dispatch(increment())}>+</button>
+        <div className="buttons">
+          <button onClick={() => dispatch(increment())}>+</button>
+          <button onClick={() => dispatch(decrement())}>-</button>
+        </div>
+
+        <div className="input-group">
+          <input
+            type="number"
+            value={number}
+            onChange={(e) => setNumber(e.target.value)}
+            placeholder="Enter number"
+          />
+          <button onClick={() => dispatch(incrementByAmount(Number(number)))}>
+            Increment By Amount
+          </button>
+          <button onClick={() => dispatch(decrementByAmount(Number(number)))}>
+            Decrement By Amount
+          </button>
+        </div>
       </div>
-      <div>
-        <button onClick={() => dispatch(decrement())}>-</button>
-      </div>
-      <div>
-        <input
-          type="number"
-          value={number}
-          onChange={(e) => setNumber(e.target.value)}
-        ></input>
-        <button onClick={() => dispatch(incrementByAmount(Number(number)))}>
-          Increment By Amount
-        </button>
-      </div>
-    </>
+    </div>
   );
 }
 

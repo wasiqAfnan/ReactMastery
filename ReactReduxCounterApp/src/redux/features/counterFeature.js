@@ -16,12 +16,15 @@ const counterSlice = createSlice({
 
     // Step:8 action is an arg passed from other file to provide any addional data to the reducer function
     // action.payload holds the actual value passed from other files to the reducer fucntion
-    incrementByAmount:(prevState, action) =>{
-        prevState.value += action.payload
-    }
+    incrementByAmount: (prevState, action) => {
+      prevState.value += action.payload;
+    },
+    decrementByAmount: (prevState, action) => {
+      prevState.value -= action.payload;
+    },
   },
 });
 
-export const {increment, decrement, incrementByAmount} = counterSlice.actions // exporting individual functions/reducers to disptch in another files
+export const { increment, decrement, incrementByAmount, decrementByAmount } = counterSlice.actions; // exporting individual functions/reducers to disptch in another files
 
 export default counterSlice.reducer; // exporting all the reducer from the above slice to use or to pass all in the store
