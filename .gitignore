@@ -42,3 +42,5 @@ Thumbs.db
 # Ignore temporary files
 *.tmp
 *.swp
+
+package-lock.json/
