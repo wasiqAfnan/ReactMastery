@@ -15,15 +15,26 @@ export const getImages = async (query) => {
 };
 
 export const getVideos = async (query) => {
-  const response = await axios.get("https://api.pexels.com/videos/search",
-    {
+  const response = await axios.get("https://api.pexels.com/videos/search", {
     headers: {
-      Authorization: `Client-ID ${import.meta.env.VITE_UNSPLASH_ACCESS_KEY}`,
+      Authorization: `${import.meta.env.VITE_PEXELS_API_KEY}`,
     },
     params: {
       query,
       page: 1,
-      per_page: 20,
+      per_page: 15,
+    },
+  });
+  return response.data;
+};
+
+export const getGifs = async (query) => {
+  const response = await axios.get("https://api.giphy.com/v1/gifs/search", 
+    {
+    params: {
+      api_key: import.meta.env.VITE_GIPHY_API_KEY,
+      q: query,
+      limit: 15,
     },
   });
   return response.data;
