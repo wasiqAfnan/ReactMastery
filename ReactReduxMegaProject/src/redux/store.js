@@ -1,3 +1,8 @@
-import { createStore } from "redux";
+import { configureStore } from "@reduxjs/toolkit";
+import searchSlice from "./features/searchSlice";
 
-export default createStore = () => {};
+export default configureStore({
+    reducer: {
+        search: searchSlice,
+    },
+})

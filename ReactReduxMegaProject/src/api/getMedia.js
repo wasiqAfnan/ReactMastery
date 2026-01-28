@@ -1,5 +1,6 @@
 import axios from "axios";
 
+// unsplash api for images
 export const getImages = async (query) => {
   const response = await axios.get("https://api.unsplash.com/search/photos", {
     headers: {
@@ -14,6 +15,7 @@ export const getImages = async (query) => {
   return response.data;
 };
 
+// pexels api for videos
 export const getVideos = async (query) => {
   const response = await axios.get("https://api.pexels.com/videos/search", {
     headers: {
@@ -28,6 +30,7 @@ export const getVideos = async (query) => {
   return response.data;
 };
 
+// giphy api for gifs
 export const getGifs = async (query) => {
   const response = await axios.get("https://api.giphy.com/v1/gifs/search", 
     {
